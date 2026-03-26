@@ -6,6 +6,22 @@
  * ║  Routing + API + SEO standar. Tanpa fitur keren.                       ║
  * ║  Author : dukunseo.com                                                 ║
  * ╚══════════════════════════════════════════════════════════════════════════╝
+ *
+ * LICENSE
+ * ───────────────────────────────────────────────────────────────────────────
+ * Copyright © 2026–present dukunseo.com. All rights reserved.
+ *
+ * Kode ini dilisensikan eksklusif untuk pengguna resmi dukunseo.com.
+ * Penggunaan, distribusi, modifikasi, atau sublisensing tanpa izin tertulis
+ * dari dukunseo.com dilarang keras.
+ *
+ * Lisensi ini TIDAK mengizinkan:
+ *   • Redistribusi ulang (baik gratis maupun komersial)
+ *   • Penghapusan atribusi atau klaim kepemilikan oleh pihak lain
+ *   • Penggunaan nama / merek dukunseo.com untuk tujuan promosi pihak ketiga
+ *
+ * Untuk pertanyaan lisensi, kunjungi: https://dukunseo.com
+ * ───────────────────────────────────────────────────────────────────────────
  */
 
 // ── Regex & konstanta dasar ──────────────────────────────────────────────────
