@@ -1,0 +1,104 @@
+name = "warung-basic"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ── Scheduled triggers ──────────────────────────────────────────────────────
+[triggers]
+crons = ["0 * * * *"]  # Sesuaikan jadwal sesuai kebutuhan
+
+# ── Variabel lingkungan (vars) ──────────────────────────────────────────────
+[vars]
+
+# == Identitas Warung ==
+WARUNG_NAME    = "NamaWarung"          # Nama situs, misal: "StreamGratis"
+WARUNG_DOMAIN  = "example.com"         # Domain tanpa https://, misal: "streamgratis.com"
+WARUNG_BASE_URL= "https://example.com" # Full URL, misal: "https://streamgratis.com"
+WARUNG_TAGLINE = "Streaming gratis kualitas terbaik"
+WARUNG_TYPE    = "C"                   # Tipe warung (C = default)
+
+# == Dapur (Backend API) ==
+DAPUR_BASE_URL  = "https://api.example.com" # URL backend/API dapur
+DAPUR_CACHE_TTL = "600"                     # TTL cache dalam detik (default: 600)
+DAPUR_DEBUG     = "false"                   # Aktifkan debug mode: "true" / "false"
+
+# == SEO ==
+SEO_DEFAULT_DESC = "Nonton konten terbaru gratis streaming HD. Koleksi terlengkap update tiap hari."
+SEO_KEYWORDS     = "streaming gratis, nonton online, video terbaru"
+SEO_LANG         = "id"
+SEO_LOCALE       = "id_ID"
+SEO_OG_IMAGE_W   = "1200"
+SEO_OG_IMAGE_H   = "630"
+
+# == Path URL ==
+PATH_CONTENT  = "tonton"
+PATH_SEARCH   = "cari"
+PATH_CATEGORY = "kategori"
+PATH_TAG      = "tag"
+PATH_ALBUM    = "galeri"
+PATH_DMCA     = "dmca"
+PATH_TERMS    = "syarat"
+PATH_PRIVACY  = "privasi"
+PATH_FAQ      = "faq"
+PATH_CONTACT  = "kontak"
+PATH_ABOUT    = "tentang"
+
+# == Pagination ==
+ITEMS_PER_PAGE = "32"
+RELATED_COUNT  = "12"
+TRENDING_COUNT = "15"
+
+# == Tema ==
+THEME_ACCENT       = "#ff4d4d"
+THEME_ACCENT2      = "#ff8080"
+THEME_BG           = "#0f0f0f"
+THEME_BG2          = "#1a1a1a"
+THEME_BG3          = "#252525"
+THEME_FG           = "#ffffff"
+THEME_FG_DIM       = "#b0b0b0"
+THEME_BORDER       = "#333333"
+THEME_FONT         = "Inter"
+THEME_FONT_DISPLAY = "Poppins"
+
+# == Iklan ==
+ADS_ENABLED        = "false"  # "true" untuk mengaktifkan iklan
+ADS_ADSENSE_CLIENT = ""       # Kode AdSense, misal: "ca-pub-XXXXXXXXXX"
+ADS_LABEL          = ""       # Label iklan
+ADS_CODE_TOP_D     = ""       # Kode iklan atas (desktop)
+ADS_CODE_TOP_M     = ""       # Kode iklan atas (mobile)
+ADS_CODE_MID_D     = ""       # Kode iklan tengah (desktop)
+ADS_CODE_MID_M     = ""       # Kode iklan tengah (mobile)
+ADS_CODE_BTM_D     = ""       # Kode iklan bawah (desktop)
+ADS_CODE_BTM_M     = ""       # Kode iklan bawah (mobile)
+
+# == Misc ==
+DEFAULT_THUMB   = ""                  # URL thumbnail default jika tidak ada gambar
+CONTACT_EMAIL   = "admin@example.com" # Email kontak
+HONEYPOT_PREFIX = "admin-cp"          # Prefix path honeypot (jangan diubah sembarangan)
+SITEMAP_SALT    = "warung_basic_salt" # Salt untuk sitemap, ubah ke nilai unik Anda
+
+# ── Secrets (gunakan: wrangler secret put NAMA_SECRET) ─────────────────────
+# Variabel sensitif JANGAN dimasukkan di sini, simpan via CLI:
+#
+#   wrangler secret put DAPUR_BASE_URL
+#   wrangler secret put ADS_ADSENSE_CLIENT
+#
+# ── Environment: Production ─────────────────────────────────────────────────
+[env.production]
+name = "warung-basic-production"
+route = { pattern = "example.com/*", zone_name = "example.com" }
+
+[env.production.vars]
+WARUNG_DOMAIN   = "example.com"
+WARUNG_BASE_URL = "https://example.com"
+DAPUR_DEBUG     = "false"
+
+# ── Environment: Staging ────────────────────────────────────────────────────
+[env.staging]
+name = "warung-basic-staging"
+
+[env.staging.vars]
+WARUNG_DOMAIN   = "staging.example.com"
+WARUNG_BASE_URL = "https://staging.example.com"
+DAPUR_DEBUG     = "true"
+DAPUR_CACHE_TTL = "60"
